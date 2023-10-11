@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\PermissionController;
+use App\Http\Controllers\Api\RoleController;
 use App\Http\Controllers\Api\TenantController;
 use App\Http\Controllers\Api\UserController;
 use Illuminate\Http\Request;
@@ -27,10 +29,14 @@ Route::post('login', [AuthController::class, 'login']);
 
 Route::middleware('web')->group(
     function () {
-        Route::apiResource('users', UserController::class);
-        Route::get('user', [UserController::class, 'user']);
+        // Route::apiResource('users', UserController::class);
+        // Route::get('user', [UserController::class, 'user']);
         Route::apiResource('tenants', TenantController::class);
-        Route::post('logout', [AuthController::class, 'logout']);
+        Route::apiResource('permissions', PermissionController::class);
+        Route::apiResource('roles', RoleController::class);
+        Route::post('permissions-to-role/{role}', [RoleController::class,'permissionsToRole']);
+        Route::post('roles-to-user/{user}', [RoleController::class,'rolesToUser']);
+        // Route::post('logout', [AuthController::class, 'logout']);
     }
 );
 

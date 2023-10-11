@@ -16,8 +16,8 @@ class DatabaseSeeder extends Seeder
 
         $client = new ClientRepository();
 
-        $client->createPasswordGrantClient(null, 'Default password grant client', 'http://your.redirect.path');
-        $client->createPersonalAccessClient(null, 'Default personal access client', 'http://your.redirect.path');
+        $client->createPasswordGrantClient(null, 'UaQj32GbSmUehX7aCQN6wXKVwgK3G9o8hkSpgUPT', 'http://localhost', 'users');
+        $client->createPersonalAccessClient(null, 'E2HF9Cl9gojgSV7Npey1WbliRhacCHgIaeaHs0Tx', 'http://localhost', 'users');
 
         // \App\Models\User::factory(10)->create();
 

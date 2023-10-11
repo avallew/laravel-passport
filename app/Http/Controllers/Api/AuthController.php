@@ -31,7 +31,7 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
-        if (!auth()->attempt($request->all())) {
+        if (!auth()->guard('web')->attempt($request->all())) {
             throw ValidationException::withMessages([
                 'email' => [trans('auth.failed')],
             ]);
